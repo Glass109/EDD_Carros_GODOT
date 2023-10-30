@@ -1,0 +1,121 @@
+[gd_scene load_steps=11 format=3 uid="uid://cdehtbb0iuabs"]
+
+[ext_resource type="Texture2D" uid="uid://n34todrwqego" path="res://Assets/bg.jpg" id="1_6ca6x"]
+[ext_resource type="PackedScene" uid="uid://brr7o3skmnf12" path="res://Nodes/CarManager.tscn" id="1_wddki"]
+[ext_resource type="PackedScene" uid="uid://stbhsjmnm67w" path="res://Nodes/Paleta.tscn" id="2_sm3yt"]
+[ext_resource type="PackedScene" uid="uid://cxfmq5jspxros" path="res://Nodes/Suelo.tscn" id="4_8o4ix"]
+[ext_resource type="Script" path="res://Nodes/UI.cs" id="4_almdm"]
+[ext_resource type="Script" path="res://Scripts/Cursor.cs" id="5_x8102"]
+[ext_resource type="Texture2D" uid="uid://cttw1ystjp2sf" path="res://Assets/Characters/hand.png" id="6_cg1s4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gfnmx"]
+font_size = 80
+font_color = Color(0.960784, 0.2, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljn3c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sli36"]
+size = Vector2(40, 40.1136)
+
+[node name="Main" type="Node2D"]
+texture_filter = 1
+metadata/_edit_lock_ = true
+
+[node name="Fondo" type="TextureRect" parent="."]
+offset_left = -188.0
+offset_top = -34.0
+offset_right = 989.0
+offset_bottom = 762.0
+texture = ExtResource("1_6ca6x")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Manager" parent="." instance=ExtResource("1_wddki")]
+position = Vector2(1026, 406)
+
+[node name="Paleta" parent="." instance=ExtResource("2_sm3yt")]
+offset_left = 401.0
+offset_top = 222.0
+offset_right = 401.0
+offset_bottom = 222.0
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 643.0
+script = ExtResource("4_almdm")
+
+[node name="Puntuacion" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = -1.0
+offset_right = 791.0
+offset_bottom = 112.0
+text = "PUNTOS: 0"
+label_settings = SubResource("LabelSettings_gfnmx")
+horizontal_alignment = 1
+
+[node name="Strikes" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 271.0
+offset_right = 785.0
+offset_bottom = 384.0
+text = "STRIKES: 0"
+label_settings = SubResource("LabelSettings_gfnmx")
+horizontal_alignment = 1
+
+[node name="Suelo" parent="." instance=ExtResource("4_8o4ix")]
+position = Vector2(-527, 547)
+scale = Vector2(2.88, 1)
+
+[node name="AreaCursor" type="Area2D" parent="."]
+position = Vector2(-84, -75)
+script = ExtResource("5_x8102")
+
+[node name="Cursor" type="TextureRect" parent="AreaCursor"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 84.0
+offset_bottom = 75.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("6_cg1s4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCursor"]
+position = Vector2(84, 34)
+shape = SubResource("RectangleShape2D_ljn3c")
+
+[node name="AreaEliminador" type="Area2D" parent="."]
+position = Vector2(-345, 207)
+scale = Vector2(1, 12.3904)
+
+[node name="ColorRect" type="ColorRect" parent="AreaEliminador"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.454902, 1, 0.180392, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaEliminador"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_sli36")
+
+[node name="AreaComprobador" type="Area2D" parent="."]
+position = Vector2(118, 406)
+scale = Vector2(1, 3.52)
+
+[node name="ColorRect" type="ColorRect" parent="AreaComprobador"]
+offset_left = -374.0
+offset_top = 0.284081
+offset_right = -334.0
+offset_bottom = 40.2841
+color = Color(0.454902, 1, 0.180392, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaComprobador"]
+position = Vector2(-354, 19.3182)
+shape = SubResource("RectangleShape2D_sli36")

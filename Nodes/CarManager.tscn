@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://brr7o3skmnf12"]
+
+[ext_resource type="Script" path="res://Scripts/CarManager.cs" id="1_t6bek"]
+
+[node name="Node" type="Node2D"]
+script = ExtResource("1_t6bek")
+
+[node name="Tempo" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true

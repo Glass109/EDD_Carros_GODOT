@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://d25rap7scvsh4"]
+
+[ext_resource type="Texture2D" uid="uid://da3ki6jne7oc8" path="res://Assets/Characters/car.png" id="1_icjwx"]
+[ext_resource type="Script" path="res://Scripts/Car.cs" id="1_t133q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gptms"]
+size = Vector2(97, 50)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y3yk1"]
+font_size = 50
+
+[node name="Automovil" type="RigidBody2D"]
+texture_filter = 1
+position = Vector2(-49, -25)
+linear_velocity = Vector2(-10, 0)
+script = ExtResource("1_t133q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(48.5, 25)
+shape = SubResource("RectangleShape2D_gptms")
+
+[node name="Texture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(100, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_icjwx")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Area" type="Area2D" parent="."]
+position = Vector2(48.5, 25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+shape = SubResource("RectangleShape2D_gptms")
+
+[node name="Etiqueta" type="Label" parent="."]
+offset_left = -35.0
+offset_top = -88.0
+offset_right = 134.0
+offset_bottom = -16.0
+text = "COLOR"
+label_settings = SubResource("LabelSettings_y3yk1")
+horizontal_alignment = 1

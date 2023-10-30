@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://stbhsjmnm67w"]
+
+[ext_resource type="PackedScene" uid="uid://bhcbw0ujlxwva" path="res://Nodes/CuadroColor.tscn" id="1_ihqmk"]
+[ext_resource type="Script" path="res://Scripts/Paleta.cs" id="1_u01r3"]
+
+[node name="Paleta" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 56.0
+offset_right = 16.0
+offset_bottom = 56.0
+script = ExtResource("1_u01r3")
+
+[node name="ColorRect" parent="." instance=ExtResource("1_ihqmk")]
+offset_left = -80.0
+offset_top = -88.0
+offset_right = -80.0
+offset_bottom = -88.0
+
+[node name="ColorRect2" parent="." instance=ExtResource("1_ihqmk")]
+offset_left = 16.0
+offset_top = -88.0
+offset_right = 16.0
+offset_bottom = -88.0
+
+[node name="ColorRect3" parent="." instance=ExtResource("1_ihqmk")]
+offset_left = 112.0
+offset_top = -88.0
+offset_right = 112.0
+offset_bottom = -88.0
+
+[node name="ColorRect4" parent="." instance=ExtResource("1_ihqmk")]
+offset_left = -80.0
+offset_top = 8.0
+offset_right = -80.0
+offset_bottom = 8.0
+
+[node name="ColorRect5" parent="." instance=ExtResource("1_ihqmk")]
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 16.0
+offset_bottom = 8.0
+
+[node name="ColorRect6" parent="." instance=ExtResource("1_ihqmk")]
+offset_left = 112.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 8.0
